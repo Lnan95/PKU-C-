@@ -11,21 +11,27 @@
 using namespace std;
 
 int main() {
-	int k, n;
-	double price = 200;
-	int save_amount = 0;
-	cin >> n >> k;
-	
+	double k, n;
+	double price;
+	int save_amount;
+	int flag;
 	// cout << price << endl;
-	for (int i = 1; i <= 20; i++) {
-		m ++;
-		save_amount += n;
-		if (save_amount >= price) {
-			cout << m << endl;
-			return 0;
+	while (cin >> n >> k) {
+		flag = 0;
+		price = 200;
+		save_amount = 0;
+		for (int i = 1; i <= 20; i++) {
+			save_amount += n;
+			if (save_amount >= price) {
+				cout << i << endl;
+				flag = 1;
+				break;
 		}
-		price *= (double)(100 + k) / 100;
+		price *= (100 + k) / 100;
 	}
-	cout << "Impossible" << endl;
+	if (flag == 0)
+		cout << "Impossible" << endl;
+	
+	}
 	return 0;
 }
